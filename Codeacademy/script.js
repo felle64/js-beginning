@@ -10,4 +10,6 @@ fahrenheit = Math.floor(fahrenheit);
 console.log(`The temperature is ${celsius} degrees Celsius.`);
 // Log temperature in fahrenheit to console
 console.log(`The temperature is ${fahrenheit} degrees Fahrenheit.`);
+let age = 25;
+console.log(age);
 
