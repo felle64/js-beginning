@@ -2,9 +2,40 @@
 
 let saveThingBtn = document.getElementById("saveThingBtn");
 let thingToDo = document.getElementById("thingToDo");
+let toDoListUi = document.getElementById("toDoList")
+
+let toDoList = [];
+
+function printlist () {
+
+    toDoListUi.innerHTML = "";
+
+    toDoList.map(todo => {
+
+        let toDoItem = document.createElement("li");
+        toDoItem.innerText = "Gör: " + todo;
+        toDoItem.id = todo;
+        toDoItem.addEventListener("click", (event) =>{
+            console.log("Click", event.target.id);
+            toDoList = toDoList.filter(todo => todo !== event.target.id);
+            printlist();
+        })
+        toDoListUi.appendChild(toDoItem);
+
+    });
+}
+
+saveThingBtn.addEventListener("click", () => {
+   // console.log("spara todo");
+
+    toDoList.push(thingToDo.value);
+    //console.log(toDoList);
+    printlist();
+})
 
 
-if (!localStorage.getItem("things")) {
+printlist ();
+/*if (!localStorage.getItem("things")) {
     fetch("things.json")
     .then(res => res.json())
     .then(data => {
@@ -20,14 +51,14 @@ if (!localStorage.getItem("things")) {
     })
 }
 
-saveThingBtn.addEventListener("click", () => {
+//saveThingBtn.addEventListener("click", () => {
 
     let newThing = {
         "thingToDo": things.value
     }
     console.log("new thing", newThing);
     // HÄMTA
-    let toDoList = JSON.parse(localStorage.getItem("things"));
+   /* let toDoList = JSON.parse(localStorage.getItem("things"));
     // ÄNDRA
     toDoList.push(newThing)
     console.log("new thing", toDoList);
@@ -55,4 +86,4 @@ function printThing() {
     
 }
 
-printThing();
+*/
