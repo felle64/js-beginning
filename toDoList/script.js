@@ -6,6 +6,14 @@ let toDoListUi = document.getElementById("toDoList")
 
 let toDoList = [];
 
+fetch("things.json")
+.then(function(res){
+    return res.json();
+})
+.then(function(data){
+    console.log(data);
+})
+
 function printlist () {
 
     toDoListUi.innerHTML = "";
@@ -50,8 +58,6 @@ printlist ();
         localStorage.setItem("things", JSON.stringify(data))
     })
 }
-
-//saveThingBtn.addEventListener("click", () => {
 
     let newThing = {
         "thingToDo": things.value

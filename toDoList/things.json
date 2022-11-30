@@ -1,4 +1,8 @@
 [
-{"thingToDo": "Clean"},
-{"thingToDo": "Wash"}
+{
+    "thingToDo": "Clean"
+},
+{
+    "thingToDo": "Wash"
+}
 ]
